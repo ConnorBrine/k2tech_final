@@ -121,17 +121,17 @@ const ProductDetailsPageComponent = ({
             <Col style={{ zIndex: 1 }} md={4}>
               {product.images
                 ? product.images.map((image, id) => (
-                    <div key={id}>
-                      <div key={id} id={`imageId${id + 1}`}>
-                        <Image
-                          crossOrigin="anonymous"
-                          fluid
-                          src={`${image.path ?? null}`}
-                        />
-                      </div>
-                      <br />
+                  <div key={id}>
+                    <div key={id} id={`imageId${id + 1}`}>
+                      <Image
+                        crossOrigin="anonymous"
+                        fluid
+                        src={`${image.path ?? null}`}
+                      />
                     </div>
-                  ))
+                    <br />
+                  </div>
+                ))
                 : null}
             </Col>
             <Col md={8}>
@@ -172,24 +172,24 @@ const ProductDetailsPageComponent = ({
                         aria-label="Default select example"
                       >
                         {[...Array(product.count).keys()].map((x) => (
-                          <option  key={x + 1} value={x + 1}>
+                          <option key={x + 1} value={x + 1}>
                             {x + 1}
                           </option>
                         ))}
-                          </Form.Select>
-                        </ListGroup.Item>
-                        <ListGroup.Item>
-                          <Button
-                            onClick={addToCartHandler}
-                            variant="danger"
-                            disabled={product.count === 0}
-                          >
-                            Add to cart
-                          </Button>
-                        </ListGroup.Item>
-                      </ListGroup>
-                    </Col>
-                  </Row>
+                      </Form.Select>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Button
+                        onClick={addToCartHandler}
+                        variant="danger"
+                        disabled={product.count === 0 || userInfo.isAdmin} 
+                      >
+                        Add to cart
+                      </Button>
+                    </ListGroup.Item>
+                  </ListGroup>
+                </Col>
+              </Row>
               <Row>
                 <Col className="mt-5">
                   <h5>REVIEWS</h5>
