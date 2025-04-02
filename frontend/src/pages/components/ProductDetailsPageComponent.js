@@ -172,7 +172,7 @@ const ProductDetailsPageComponent = ({
                         aria-label="Default select example"
                       >
                         {[...Array(product.count).keys()].map((x) => (
-                          <option key={x + 1} value={x + 1}>
+                          <option  key={x + 1} value={x + 1}>
                             {x + 1}
                           </option>
                         ))}
